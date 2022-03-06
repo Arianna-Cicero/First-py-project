@@ -20,46 +20,45 @@ def deco():
 
 #Function from the option 1 from the menu
 def opc1():
-    print("\t\tInserção de temperaturas")
+    print("\n\t\tInserção de temperaturas")
     deco()
     temp = input("\nEscreva o valor da temperatura em graus Celcius: ")
     float(temp)
     deco()
-    print("\n\t\tTemperaturas inseridas")
+    print("\nTemperatura inserida!")
     deco()
     try:
         #open the file and write the information inside bc of the "w"
-        with open("D:\\py\\tests\\information.txt", "w") as writer:
-            puta_array.append(temp)
-            for i in puta_array:
-                writer.write(i)   
+        with open("D:\\py\\GitHub\\First-py-project\\information.txt", "w") as writer:
+            puta_array.append(temp)  
+            
         
     except NameError:
-        print("NameError:",NameError)
+        print("\nNameError:",NameError)
         #for i, element in enumerate(writer.readlines()):
         #    print(i, element)
     finally:
-        print("Processo terminado.")
+        print("\nProcesso terminado.")
 
 def opc2():
     try:
         #open the file and read the information inside bc of the "r"
-        with open("D:\\py\\tests\\information.txt", "r") as reader:
-            print("\n\t\tTemperaturas inseridas")
+        with open("D:\\py\\GitHub\\First-py-project\\information.txt", "r") as reader:
+            print("\n\t\t\tLista das temperaturas")
             deco()
             for i, element in enumerate(reader.readlines()):
                 puta_array.append(element)
-                print(i, element)
+                print("\n",i, element)
     except NameError:
-        print("NameError:",NameError)    
+        print("\nNameError:",NameError)    
     finally:
-        print("Processo terminado.")
+        print("\nProcesso terminado.")
 
 def opc3():
     try:
         #open the file and read the information inside bc of the "r"
-        with open("D:\\py\\tests\\information.txt", "r") as reader:
-            print("\t\tTemperaturas inseridas")
+        with open("D:\\py\\GitHub\\First-py-project\\information.txt", "r") as reader:
+            print("\t\t\tLista das Temperaturas")
             deco()
             for i, element in enumerate(reader.readlines()):
                 print(i, element)
@@ -68,32 +67,32 @@ def opc3():
         for i in puta_array:
             puta_array.pop(popped)
     except NameError:
-        print("NameError:",NameError)    
+        print("\nNameError:",NameError)    
     finally:
-        print("Processo terminado.")
+        print("\nProcesso terminado.")
 
 def opc4():
     try:
-        with open("D:\\py\\tests\\information.txt", "r") as reader:
-            print("\t\tTemperaturas inseridas")
+        with open("D:\\py\\GitHub\\First-py-project\\information.txt", "r") as reader:
+            print("\n\t\tTemperaturas inseridas")
             deco()
             for i, element in enumerate(reader.readlines()):
                 print(i, element, end="\n")
-        line_modify = input("Qual é o número da linha que deseja alterar?")
+        line_modify = input("\nQual é o número da linha que deseja alterar?")
         int(line_modify)
-        modify = input("Escreva a nova temperatura: ")
+        modify = input("\nEscreva a nova temperatura: ")
         float(modify)
         for i in puta_array:
             puta_array[line_modify] = modify
     except NameError:
-        print("NameError:",NameError)    
+        print("\nNameError:",NameError)    
     finally:
-        print("Processo terminado.")
+        print("\nProcesso terminado.")
     
 
 def opc5():
     try:
-        with open("D:\\py\\tests\\information.txt", "r") as reader:
+        with open("D:\\py\\GitHub\\First-py-project\\information.txt", "r") as reader:
             print("\t\tTemperaturas inseridas")
             deco()
             for element, line in enumerate(reader.readlines()):
@@ -104,9 +103,9 @@ def opc5():
         media = sum / len(puta_array)
         print("\nMedia das temperaturas: " + media)
     except NameError:
-        print("NameError:",NameError)    
+        print("\nNameError:",NameError)    
     finally:
-        print("Processo terminado.")
+        print("\nProcesso terminado.")
 
 
 def menu():
@@ -126,20 +125,19 @@ def menu():
         
         if(opcao=='1'):
             opc1()
-            resposta = input("Quer inserir outra temperatura? ")
-            if (resposta == 's' or resposta == 'S'):
+            resposta = input("\nQuer inserir outra temperatura? ")
+            while resposta == 's' or resposta == 'S':
                 deco()
                 opc1()
-            else:
-                deco()
-                menu()
+            deco()
+            menu()
         elif(opcao=='2'):    
             opc2()
             menu()
                     
         elif(opcao=='3'):
             opc3()
-            resposta = input("Quer eliminar outra temperatura? (S - N): ")         
+            resposta = input("\nQuer eliminar outra temperatura? (S - N): ")         
             if (resposta == 's' or resposta == 'S'):
                 deco()
                 opc3()
@@ -148,7 +146,7 @@ def menu():
                 menu()
         elif(opcao=='4'):
             opc4()
-            resposta = input("Quer alterar outra temperatura? ")
+            resposta = input("\nQuer alterar outra temperatura? ")
             if (resposta == 's' or resposta == 'S'):
                 deco()
                 opc4()
@@ -165,7 +163,6 @@ def menu():
         else:
             print("Opção invalida. Por favor insira uma opção valida: ")
             menu()
-
 
 print("Programa de temperaturas")
 deco()
